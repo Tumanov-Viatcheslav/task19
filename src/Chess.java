@@ -33,6 +33,13 @@ public class Chess {
         queenPosition = inputValues[0];
         rookPosition = inputValues[1];
         horsemanPosition = inputValues[2];
+        int[] queenPositionMatrix = {(int)queenPosition.charAt(0) - (int)'A', (int)queenPosition.charAt(1) - (int)'1'},
+                rookPositionMatrix = {(int)rookPosition.charAt(0) - (int)'A', (int)rookPosition.charAt(1) - (int)'1'},
+                horsemanPositionMatrix = {(int)horsemanPosition.charAt(0) - (int)'A', (int)horsemanPosition.charAt(1) - (int)'1'};
+        Queen queen = new Queen(queenPositionMatrix[0], queenPositionMatrix[1]);
+        queen.eat(chessBoard);
+        Rook rook = new Rook(rookPositionMatrix[0], rookPositionMatrix[1]);
+        rook.eat(chessBoard);
         try(FileWriter output = new FileWriter("output.txt")) {
             output.write(String.valueOf(numberOfChoices));
         } catch (IOException ex) {
