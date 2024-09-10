@@ -1,4 +1,8 @@
 public class Horseman extends ChessPiece{
+    public Horseman(int x, int y) {
+        super(x, y);
+    }
+
     public void eat(boolean[][] board) {
         int[] sign = {-1, 1};
         boolean[] isDirect = {true, false};
@@ -19,8 +23,8 @@ public class Horseman extends ChessPiece{
             }
         }
     }
-    public Horseman(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+    //public Horseman(int x, int y) {
+    //    this.x = x;
+    //    this.y = y;
+    //}
 }
