@@ -40,6 +40,19 @@ public class Chess {
         queen.eat(chessBoard);
         Rook rook = new Rook(rookPositionMatrix[0], rookPositionMatrix[1]);
         rook.eat(chessBoard);
+        Horseman horseman = new Horseman(horsemanPositionMatrix[0], horsemanPositionMatrix[1]);
+        horseman.eat(chessBoard);
+        chessBoard[queenPositionMatrix[0]][queenPositionMatrix[1]] = false;
+        chessBoard[rookPositionMatrix[0]][rookPositionMatrix[1]] = false;
+        chessBoard[horsemanPositionMatrix[0]][horsemanPositionMatrix[1]] = false;
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (chessBoard[i][j])
+                    numberOfChoices++;
+            }
+        }
+
         try(FileWriter output = new FileWriter("output.txt")) {
             output.write(String.valueOf(numberOfChoices));
         } catch (IOException ex) {
